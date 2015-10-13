@@ -1,0 +1,39 @@
+﻿Lastenheft
+
+1.Zielbestimmung
+
+Einfaches erstellen und bearbeiten von Struktogrammen in einem Editor.
+
+2.Produkteinsatz
+
+Es soll ein einfacher WYSIWYG editor werden, der Struktogramme zur einfachen Visusalisierung von simplen Algorithmen dient.
+Der Editor kann von vielen Bereichen benutzt werden in welchen die Programmabläufe logisch visualisiert werden sollen wie Z.B Informatik Studenten/schüler um den 
+Ablauf eines Alghorithmuses zu zeigen.
+
+3.Prodruktfunktionen
+
+/LF10/ Algorithmische Grundstruktren als Einzelblöcke erstellen
+/LF20/ Variable Komposition dieser Blöcke
+/LF30/ Speichern/exportieren 
+/LF40/ laden
+
+4.Produktdaten
+
+/LD10/ Struktogramm map
+
+5.Produktleistungen
+LL/ Exaktes Laden von zuvor erstellten Diagrammen
+LL/ Exakte Darstellung von Nassi-Shneiderman-Diagramme
+LL/ Laden möglichst schnell
+6.Qualitätsanforderungen
+
+Produktqualität 	Funktionalität 	Zuverlässigkeit 	Benutzbarkeit 	Effizienz 	Änderbarkeit 	Übertragbarkeit
+Sehr Gut 												x				
+Gut 				x									
+Normal 								x												x
+Nicht relevant															x							x
+ 
+
+7. Ergänzung
+
+Vorrübergehende Beschränkung auf Nassi-Shneiderman-Diagramme
