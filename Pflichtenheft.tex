@@ -94,6 +94,8 @@
 \tableofcontents
 \newpage
 \section{Zielbestimmung}
+Ziel des Softwareprojektes ist es, ein Programm zur Erzeugung und Visualisierung von Struktogrammen zu erstellen. 
+Mit dessen Hilfe sollen Programmieranf\"{a}nger ein Tool in der Hand haben um Algorithmen und Programme systematisch zu verstehen und entwickeln.
 \subsection{Musskriterien}
 \begin{itemize}
 \item Struktogramm dynamisch erstellen
@@ -104,9 +106,9 @@
 \end{itemize}
 \subsection{Wunschkriterien}
 \begin{itemize}
-\item XML Generierung aus Struktogrammen. Dies soll zum vereinfachten exportieren dienen geht und geht damit mit speichern und laden einher.
-\item Visualisierung des ablaufen des Programmes, welches im Struktogramm vorliegt. Quasi als "Programmoutput"
-\item Erstellung von Bildern des Struktograms
+\item XML Generierung aus Struktogrammen. Dies soll zum vereinfachten exportieren dienen und geht damit mit speichern und laden einher.
+\item Visualisierung des Programmablaufes
+\item Export zu gängigen Bildformaten
 \end{itemize}
 \subsection{Abgrenzungskriterien}
 \begin{itemize}
@@ -139,11 +141,9 @@ Das Programm soll Leuten helfen, die neu ins Programmieren oder in die Informati
 \item Tastatur
 \item Desktop
 \item >200MB Ram >1GHZ CPU
-\item (Wenn exportiert werden soll Internetanschluss)
 \end{itemize}
 \subsection{Orgware}
 \begin{itemize}
-\item (Wenn exportiert werden soll Internetanschluss)
 \end{itemize}
 \subsection{Produktschnittstellen}
 \begin{itemize}
@@ -152,7 +152,7 @@ Das Programm soll Leuten helfen, die neu ins Programmieren oder in die Informati
 
 \section{Produktfunktionen}
 \begin{itemize}
-\item /F10/ Mit den Eingegebenen Daten neuen logischen Block erstellen (Erstellen)
+\item /F10/ Struktogram auf einzelnen Blöcken zusammen setzen
 \item /F20/ Löschen der Eingegeben Daten (abbrechen)
 \item /F30/ Auswahl welcher Logische Block (if, loop, sequenz)
 \item /F40/ bestehenden Block löschen
@@ -212,10 +212,27 @@ Visualisierung Anzeigen des gesamten Struktogrammes
 \subsection{Software}
 \begin{itemize}
 \item Visual Studio 2015
+\item git in Kombination mit github.com
 \end{itemize}
 \section{Ergänzungen}
 \section{Verteilung der Aufgaben zwischen den Projektteilnehmer}
 F10-F40 Martin Plank
 F50-F70 Christian Sacher
 F80-F120 Jonas Toth
+
+
+\section{Glossar}
+\begin{itemize}
+% u read here https://de.wikipedia.org/wiki/Nassi-Shneiderman-Diagramm
+	\item Sequenz -> einfache Anweisung
+	\item Alternative
+	\item Alternative Verzweigung
+	\item Fallauswahl
+	\item Zählergesteuerte Schleife
+	\item Kopfgesteuerte Schleife
+	\item Fußgesteuerte Schleife
+	\item Endlosschleife
+	\item Aussprung
+	\item Aufruf
+\end{itemize}
 \end{document}
