@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.5)  1 NOV 2015 17:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.8.5)  15 NOV 2015 20:47
 entering extended mode
 **C:/Users/Christian/Documents/GitHub/structo_edit/Pflichtenheft.tex
 (C:/Users/Christian/Documents/GitHub/structo_edit/Pflichtenheft.tex
@@ -281,6 +281,27 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \everycr=\toks17
 \minrowclearance=\skip45
 )
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+)
+\Gin@req@height=\dimen105
+\Gin@req@width=\dimen106
+)
 (C:\Users\Christian\Documents\GitHub\structo_edit\Pflichtenheft.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
@@ -298,16 +319,16 @@ LaTeX Font Info:    ... okay on input line 16.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count89
-\scratchdimen=\dimen105
+\scratchdimen=\dimen107
 \scratchbox=\box26
 \nofMPsegments=\count90
 \nofMParguments=\count91
-\everyMPshowfont=\toks18
+\everyMPshowfont=\toks19
 \MPscratchCnt=\count92
-\MPscratchDim=\dimen106
+\MPscratchDim=\dimen108
 \MPnumerator=\count93
 \makeMPintoPDFobject=\count94
-\everyMPtoPDFconversion=\toks19
+\everyMPtoPDFconversion=\toks20
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 21.
@@ -339,25 +360,36 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
- [2] [3] [4]
+ [2] [3]
+<gui-skizze.png, id=19, 894.34125pt x 482.55281pt>
+File: gui-skizze.png Graphic file (type png)
+ <use gui-skizze.png>
+Package pdftex.def Info: gui-skizze.png used on input line 183.
+(pdftex.def)             Requested size: 448.50105pt x 241.99739pt.
+
+Overfull \hbox (103.50105pt too wide) in paragraph at lines 183--184
+ [][] 
+ []
+
+[4 <C:/Users/Christian/Documents/GitHub/structo_edit/gui-skizze.png>] [5]
 (C:\Users\Christian\Documents\GitHub\structo_edit\Pflichtenheft.aux) ) 
 Here is how much of TeX's memory you used:
- 1330 strings out of 493921
- 16895 string characters out of 3144865
- 71792 words of memory out of 3000000
- 4647 multiletter control sequences out of 15000+200000
+ 1536 strings out of 493921
+ 19817 string characters out of 3144865
+ 75318 words of memory out of 3000000
+ 4837 multiletter control sequences out of 15000+200000
  8202 words of font info for 29 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 34i,8n,19p,274b,218s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,8n,19p,274b,231s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Progr
 am Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program
  Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program F
 iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program File
 s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on Pflichtenheft.pdf (5 pages, 85610 bytes).
+Output written on Pflichtenheft.pdf (6 pages, 98300 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
+ 44 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
