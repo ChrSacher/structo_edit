@@ -1,0 +1,46 @@
+####################
+### Struktogramm ###
+####################
+
+- Verkettete Liste mit Pointer auf nächsten Block
+- Array aus Pointer in Basisklasse, alles Subklassen
+  verändern das Verhalten dann ihren Wünschen entsprechend
+ 
+
+ ###################
+ ## Unsere Daten  ##
+ ###################
+
+ - Bool
+ - String
+ - Integer
+ - Float
+
+
+
+ ###### Notizen ########
+
+ - EIn Block Goto 
+ -> Struktogrammelement wird erzeugt mit Anfangsblock (z.B. Logik für If) und Endblock,
+ 	der nur den Logikfluss steuert
+
+	Beispiel:
+		* while 
+		* goto_while
+		---Expandiert dann zu---
+		* while
+			* sequenzen
+			* 
+		* goto_while
+
+
+####### Datenhaltung ######
+
+- Programm hat mehrere Sturktogramme -> Main Struktogramm default
+- Struktogramm verkettete Liste laut A4
+- Variablen 
+
+
+
+
+- Mehrdimensionale Arrays Wunschkriterium ####
