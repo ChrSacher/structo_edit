@@ -32,7 +32,3 @@ Element::Element(std::shared_ptr<Element>& before, std::shared_ptr<Element>& aft
 }
 
 
-std::shared_ptr<Element>& getNext()
-{
-	return __after;
-}

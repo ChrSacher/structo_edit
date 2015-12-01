@@ -3,7 +3,7 @@
 
 #include <memory>
 #include <string>
-#include "VaribaleMap.h"
+#include "VariableMap.h"
 
 
 /**
@@ -64,7 +64,7 @@ public:
 	*
 	* @return shared_ptr to next element
 	*/
-	virtual std::shared_ptr<Element>& getNext();
+	virtual std::shared_ptr<Element>& getNext() { return __after; }
 
 	/**
 	* @brief get element before the element in the structogram chain
