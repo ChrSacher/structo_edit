@@ -2,6 +2,8 @@
 #define ELEMENT_H
 
 #include <memory>
+#include <string>
+#include "VaribaleMap.h"
 
 
 /**
@@ -43,6 +45,19 @@ public:
 	*/
 	Element (std::shared_ptr<Element>& before, std::shared_ptr<Element>& after);
 
+	/**
+	* @brief set the text which shall be displayed on the structoelement
+	*
+	* @param element_text text on the structoelement
+	*/
+	void setText(const std::string& element_text) { __text = element_text; }
+
+	/**
+	* @brief get the text of the element
+	*
+	* @return text as string
+	*/
+	const std::string& getText() const { return __text; }
 
 	/**
 	* @brief get the next element in the evaluation chain
@@ -50,11 +65,6 @@ public:
 	* @return shared_ptr to next element
 	*/
 	virtual std::shared_ptr<Element>& getNext();
-
-	/**
-	* @brief Does nothing, since shared_ptr will do all the deleting and reference counting
-	*/
-	virtual ~Element () {}
 
 	/**
 	* @brief get element before the element in the structogram chain
@@ -70,9 +80,30 @@ public:
 	*/
 	const std::shared_ptr<Element>& getAfter() const  { return __after; }
 
+
+	/**
+	* @brief execute the element with the logik in it
+	*
+	* This method will execute the logik implemented in the element.
+	* It will update the variables in the structogram and return the next element in the
+	* chain.
+	*
+	* @param variables variables within the structogramm - MAY BE CHANGED
+	*/
+	virtual std::shared_ptr<Element>& execute(VariableMap& variables) = 0;
+
+	/**
+	* @brief Does nothing, since shared_ptr will do all the deleting and reference counting
+	*/
+	virtual ~Element () {}
+
+
+
 private:
 	std::shared_ptr<Element>	__before; 	/**< The element before the structogram */
 	std::shared_ptr<Element>	__after;	/**< The element after the structogram */
+
+	std::string					__text;		/**< Text displayed on the node in the gui */
 };
 
 
