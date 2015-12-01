@@ -26,3 +26,8 @@
 *.exe
 *.out
 *.app
+*.aux
+Pflichtenheft.log
+Pflichtenheft.pdf
+Pflichtenheft.synctex.gz
+Pflichtenheft.toc
