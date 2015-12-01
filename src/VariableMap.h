@@ -4,6 +4,7 @@
 
 #include <map>
 #include <utility>
+#include <string>
 
 
 enum StructogramType
@@ -31,7 +32,50 @@ enum StructogramType
 * One Dimensional Arrays will be the normal representation but contained in [], seperated
 * by semicola (;). Characters must be escaped in strings with \ (escape)
 */
-typedef std::map<std::string, std::pair<enum StructogramType, std::string>> VariableMap;
+class VariableMap 
+{
+	VariableMap () {}
+
+
+	/**
+	* @brief check if a variable exists in this variable map
+	*
+	* @param varname name of the variable 
+	*
+	* @return true if the variable exists, otherwise false
+	*/
+	bool exists(const std::string& varname);
+
+
+	/**
+	* @brief get the raw value of a variable
+	*
+	* will throw an out_of_range - execption if the variable does not exist
+	*
+	* @param varname name of the variable
+	*
+	* @return pair of datatype and raw value, which must be parsed
+	*/
+	std::pair<enum StructogramType, std::string> getValue(const std::string& varname);
+
+	
+	/**
+	* @brief set the value for a variable with the name 'varname'
+	*
+	* will create the variable if it does not exist yet
+	* if the variable exists, but the type will not match, it throws an invalid_argument 
+	* execption
+	*
+	* @param varname name of the variable which must be set
+	* @param type type of the variable
+	* @param value raw value of the variable, see type declaration
+	*/
+	void setValue(const std::string& varname, enum StructogramType type, const std::string& value);
+
+
+private:
+	std::map<std::string, std::pair<enum StructogramType, std::string>>	__data;
+};
 
 
 // ------------
