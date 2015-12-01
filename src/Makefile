@@ -3,7 +3,7 @@ LD=g++
 GXX_FLAGS=-std=c++11
 LD_FLAGS=-lm
 
-OBJECTS=main.o Element.o
+OBJECTS=main.o Element.o VariableMap.o 
 
 EXECUTABLE=test_structogram_cli
 

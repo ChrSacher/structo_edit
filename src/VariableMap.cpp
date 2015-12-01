@@ -5,11 +5,11 @@
 bool VariableMap::exists(const std::string& varname)
 {
 	// true, when find(varname) is not __data::end() which it will be if it is not found
-	return __data.find(varname) != __data::end();
+	return __data.find(varname) != __data.end();
 }
 
 
-std::pair<enum StructogramType, std::string> VariableMap::getValue(const std::string& 
+std::pair<enum StructogramType, std::string> VariableMap::getVariable(const std::string& 
 	varname)
 {
 	if (!exists(varname))
@@ -49,3 +49,43 @@ void VariableMap::setValue(const std::string& varname, enum StructogramType type
 		}
 	}
 }
+
+
+
+
+// -----------------
+// Helper Functions
+// -----------------
+void debug(const VariableMap& vm)
+{
+	std::stringstream ss;
+
+	ss << "Variable Map my friend" << std::endl;
+
+	for(auto it = vm.__data.begin(); it != vm.__data.end(); it++)
+	{
+		std::string type_str = get_type_str(it->second);
+
+		ss << it->first;
+		ss << " : ";
+		ss << type_str << " = ";
+		ss << it->second.second << std::endl;
+	}
+
+	std::cout << ss.str() << std::endl;
+}
+
+
+std::string get_type_str(const std::pair<enum StructogramType, std::string>& variable)
+{
+	switch(variable.first)
+	{
+		case Boolean:	return std::string("Boolean"); break;
+		case String:	return std::string("String"); break;
+		case Integer:	return std::string("Integer"); break;
+		case Float:		return std::string("Float"); break;
+		default:		return std::string("Invalid Type!"); break;
+	}
+}
+
+

@@ -34,6 +34,7 @@ enum StructogramType
 */
 class VariableMap 
 {
+public:
 	VariableMap () {}
 
 
@@ -56,7 +57,7 @@ class VariableMap
 	*
 	* @return pair of datatype and raw value, which must be parsed
 	*/
-	std::pair<enum StructogramType, std::string> getValue(const std::string& varname);
+	std::pair<enum StructogramType, std::string> getVariable(const std::string& varname);
 
 	
 	/**
@@ -73,14 +74,21 @@ class VariableMap
 	void setValue(const std::string& varname, enum StructogramType type, const std::string& value);
 
 
+	friend void debug(const VariableMap& vm);
+
 private:
-	std::map<std::string, std::pair<enum StructogramType, std::string>>	__data;
+	std::map<std::string, std::pair<enum StructogramType, std::string> >	__data;
 };
 
 
 // ------------
 // Helper functions for the variable map
 // ------------
+#include <iostream>
+#include <sstream>
+void debug(const VariableMap& vm);
+
+std::string get_type_str(const std::pair<enum StructogramType, std::string>& variable);
 
 
 #endif /* end of include guard: VARIABLEMAP_H */
