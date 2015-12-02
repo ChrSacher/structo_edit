@@ -14,7 +14,7 @@ int main(int argc, const char *argv[])
 	debug(vm);
 
 	std::cout << vm.exists("cartman") << std::endl;
-	std::cout << vm.getValue("mein_penis").second << std::endl;
+	std::cout << vm.getVariable("mein_penis").second << std::endl;
 
 	return 0;
 }

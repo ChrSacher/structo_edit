@@ -3,17 +3,17 @@
 
 #include "Element.h"
 
-class EinfacheAuswahl 
+class Aufruf 
 {
 public:
-	EinfacheAuswahl ();
-	EinfacheAuswahl (Element* before, Element* after = nullptr);
-	EinfacheAuswahl (std::shared_ptr<Element>& before);
-	EinfacheAuswahl (std::shared_ptr<Element>& before, std::shared_ptr<Element>& after);
+	Aufruf ();
+	Aufruf (Element* before, Element* after = nullptr);
+	Aufruf (std::shared_ptr<Element>& before);
+	Aufruf (std::shared_ptr<Element>& before, std::shared_ptr<Element>& after);
 
 	virtual std::shared_ptr<Element>& execute(VaribaleMap& variables);
 
-	virtual ~EinfacheAuswahl ();
+	virtual ~Aufruf ();
 
 private:
 	

@@ -5,7 +5,7 @@ LD_FLAGS=-lm
 
 OBJECTS=main.o Element.o VariableMap.o 
 
-EXECUTABLE=test_structogram_cli
+EXECUTABLE=test_structogram_cli.bin
 
 $(EXECUTABLE): $(OBJECTS)
 	$(LD) $(LD_FLAGS) -o "$@" $(OBJECTS)

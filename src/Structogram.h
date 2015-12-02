@@ -2,7 +2,7 @@
 #define STRUCTOGRAM_H
 
 #include "Element.h"
-#include "VaribaleMap.h"
+#include "VariableMap.h"
 
 #include <vector>
 
@@ -10,8 +10,10 @@
 class Structogram 
 {
 public:
-	Structogram ();
-	virtual ~Structogram ();
+	Structogram () {}
+	virtual ~Structogram () {}
+
+	VaribaleMap								variables;
 
 private:
 	/**
@@ -19,7 +21,6 @@ private:
 	*/
 	std::vector<std::shared_ptr<Element>>	__elements;
 
-	VaribaleMap								__variables;
 
 };
 
