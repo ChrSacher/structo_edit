@@ -2,6 +2,74 @@
 #include <stdexcept>
 #include <sstream>
 
+Variable Variable::operator+(const Variable& Other)
+{
+	return Variable();
+}
+Variable Variable::operator-(const Variable& Other)
+{
+	return Variable();
+}
+Variable Variable::operator*(const Variable& Other)
+{
+	return Variable();
+}
+Variable Variable::operator/(const Variable& Other)
+{
+	return Variable();
+}
+
+Variable& Variable::operator+=(const Variable& Other)
+{
+	return *this;
+}
+Variable& Variable::operator-=(const Variable& Other)
+{
+	return *this;
+}
+Variable& Variable::operator*=(const Variable& Other)
+{
+	return *this;
+}
+Variable& Variable::operator/=(const Variable& Other)
+{
+	return *this;
+}
+
+bool Variable::operator==(const Variable& Other)
+{
+	return __type == Other.__type;
+}
+bool Variable::operator!=(const Variable& Other)
+{
+	return __type != Other.__type;
+}
+
+std::string Variable::getDebug()
+{
+	std::string returnString = "";
+	returnString = get_type_str(__type) + " = " + returnString + __value + "\n";
+	return returnString;
+}
+
+void Variable::setValue(const std::string& Value)
+{
+	__value = Value;
+}
+void Variable::setType(const StructogramType type)
+{
+	__type = type;
+}
+
+std::string Variable::getValue() const
+{
+	return __value;
+}
+StructogramType Variable::getType() const
+{
+	return __type;
+}
+
 bool VariableMap::exists(const std::string& varname)
 {
 	// true, when find(varname) is not __data::end() which it will be if it is not found
@@ -9,7 +77,7 @@ bool VariableMap::exists(const std::string& varname)
 }
 
 
-std::pair<enum StructogramType, std::string> VariableMap::getVariable(const std::string& 
+Variable VariableMap::getVariable(const std::string& 
 	varname)
 {
 	if (!exists(varname))
@@ -27,7 +95,7 @@ void VariableMap::setValue(const std::string& varname, enum StructogramType type
 	// create the variable if not existing
 	if (!exists(varname))
 	{
-		__data[varname] = std::pair<enum StructogramType, std::string> { type, value };
+		__data[varname] = Variable(varname,type, value);
 
 		return;
 	}
@@ -36,10 +104,10 @@ void VariableMap::setValue(const std::string& varname, enum StructogramType type
 	else
 	{
 		// will check only basetype, not on array and so on
-		if (__data[varname].first == type)
+		if (__data[varname].getType() == type)
 		{
 			// is not right, arrays and so an need special care
-			__data[varname].second = value;
+			__data[varname].setValue(value);
 		}
 		else
 		{
@@ -69,16 +137,22 @@ void debug(const VariableMap& vm)
 		ss << it->first;
 		ss << " : ";
 		ss << type_str << " = ";
-		ss << it->second.second << std::endl;
+		ss << it->second.getValue() << std::endl;
 	}
 
 	std::cout << ss.str() << std::endl;
 }
 
 
-std::string get_type_str(const std::pair<enum StructogramType, std::string>& variable)
+std::string get_type_str(const Variable &variable)
 {
-	switch(variable.first)
+	StructogramType r = variable.getType();
+	return get_type_str(r);
+}
+
+std::string get_type_str(StructogramType type)
+{
+	switch (type)
 	{
 		case Boolean:	return std::string("Boolean"); break;
 		case String:	return std::string("String"); break;

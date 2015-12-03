@@ -25,7 +25,7 @@ public:
 
 	virtual ~Structogram () {}
 
-	
+
 	/**
 	* @brief get name of the structogram
 	*
