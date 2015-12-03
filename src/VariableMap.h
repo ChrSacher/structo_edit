@@ -16,6 +16,9 @@ enum StructogramType
 	Invalid
 };
 
+/**
+* @brief Variable as an type which has many possible types \sa StructogramType
+*/
 class Variable
 {
 public:
@@ -45,6 +48,8 @@ private:
 	std::string __value;
 	StructogramType __type;
 };
+
+
 /**
 * @brief Define the VariableMap for the structogram for internal use, will be save in
 * a structogram
