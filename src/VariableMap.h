@@ -13,9 +13,38 @@ enum StructogramType
 	String,		/**< will map to std::string in c++ */
 	Integer,	/**< will map to int in c++ */
 	Float,		/**< will map to double in c++ */
+	Invalid
 };
 
+class Variable
+{
+public:
+	Variable(const std::string &Name, StructogramType Type, const std::string &Value) : __value(Value), __type(Type) {};
+	Variable() :__value(""), __type(Invalid) {};
+	Variable operator+(const Variable& Other);
+	Variable operator-(const Variable& Other);
+	Variable operator*(const Variable& Other);
+	Variable operator/(const Variable& Other);
 
+	Variable& operator+=(const Variable& Other);
+	Variable& operator-=(const Variable& Other);
+	Variable& operator*=(const Variable& Other);
+	Variable& operator/=(const Variable& Other);
+
+	bool operator==(const Variable& Other);
+	bool operator!=(const Variable& Other);
+
+	std::string getDebug();
+
+	void setValue(const std::string& Value);
+	void setType(const StructogramType type);
+
+	std::string getValue() const;
+	StructogramType getType() const;
+private:
+	std::string __value;
+	StructogramType __type;
+};
 /**
 * @brief Define the VariableMap for the structogram for internal use, will be save in
 * a structogram
@@ -57,7 +86,7 @@ public:
 	*
 	* @return pair of datatype and raw value, which must be parsed
 	*/
-	std::pair<enum StructogramType, std::string> getVariable(const std::string& varname);
+	Variable getVariable(const std::string& varname);
 
 	
 	/**
@@ -77,7 +106,7 @@ public:
 	friend void debug(const VariableMap& vm);
 
 private:
-	std::map<std::string, std::pair<enum StructogramType, std::string> >	__data;
+	std::map<std::string, Variable >	__data;
 };
 
 
@@ -88,7 +117,7 @@ private:
 #include <sstream>
 void debug(const VariableMap& vm);
 
-std::string get_type_str(const std::pair<enum StructogramType, std::string>& variable);
-
+std::string get_type_str(const Variable &var);
+std::string get_type_str(StructogramType type);
 
 #endif /* end of include guard: VARIABLEMAP_H */

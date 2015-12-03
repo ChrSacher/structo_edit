@@ -13,7 +13,7 @@ public:
 	Structogram () {}
 	virtual ~Structogram () {}
 
-	VaribaleMap								variables;
+	VariableMap								variables;
 
 private:
 	/**
