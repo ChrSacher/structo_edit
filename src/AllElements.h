@@ -1,7 +1,7 @@
 #ifndef ALL_ELEMENTS_H
 #define ALL_ELEMENTS_H
 
-#include "VaribaleMap.h"
+#include "VariableMap.h"
 #include "Sequenz.h"
 #include "EinfacheAuswahl.h"
 #include "ZweifacheAuswahl.h"
