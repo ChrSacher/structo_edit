@@ -19,8 +19,8 @@ enum StructogramType
 class Variable
 {
 public:
-	Variable(const std::string &Name, StructogramType Type, const std::string &Value) :__name(Name), __value(Value), __type(Type) {};
-	Variable() :__name(""), __value(""), __type(Invalid) {};
+	Variable(const std::string &Name, StructogramType Type, const std::string &Value) : __value(Value), __type(Type) {};
+	Variable() :__value(""), __type(Invalid) {};
 	Variable operator+(const Variable& Other);
 	Variable operator-(const Variable& Other);
 	Variable operator*(const Variable& Other);
@@ -36,15 +36,12 @@ public:
 
 	std::string getDebug();
 
-	void setName(const std::string& Name);
 	void setValue(const std::string& Value);
 	void setType(const StructogramType type);
 
-	std::string getName() const;
 	std::string getValue() const;
 	StructogramType getType() const;
 private:
-	std::string __name;
 	std::string __value;
 	StructogramType __type;
 };

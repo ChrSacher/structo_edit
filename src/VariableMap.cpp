@@ -48,17 +48,10 @@ bool Variable::operator!=(const Variable& Other)
 std::string Variable::getDebug()
 {
 	std::string returnString = "";
-	returnString + __name;
-	returnString + " : ";
-	returnString + get_type_str(*this) + " = ";
-	returnString + __value +  "\n";
+	returnString = get_type_str(__type) + " = " + returnString + __value + "\n";
 	return returnString;
 }
 
-void Variable::setName(const std::string& Name)
-{
-	__name = Name;
-}
 void Variable::setValue(const std::string& Value)
 {
 	__value = Value;
@@ -68,10 +61,6 @@ void Variable::setType(const StructogramType type)
 	__type = type;
 }
 
-std::string Variable::getName() const
-{
-	return __name;
-}
 std::string Variable::getValue() const
 {
 	return __value;

@@ -14,7 +14,7 @@ int main(int argc, const char *argv[])
 	debug(vm);
 
 	std::cout << vm.exists("cartman") << std::endl;
-	std::cout << vm.getVariable("mein_penis").getName() << std::endl;
+	std::cout << vm.getVariable("mein_penis").getDebug() << std::endl;
 	std::string a;
 	std::cin >> a ;
 	return 0;
