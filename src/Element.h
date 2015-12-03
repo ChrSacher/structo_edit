@@ -79,7 +79,7 @@ public:
 	*
 	* @return shared_ptr to next element
 	*/
-	virtual std::shared_ptr<Element>& getNext() { return __after; }
+	virtual std::shared_ptr<Element> getNext() { return __after; }
 
 
 	/**
@@ -87,7 +87,7 @@ public:
 	*
 	* @return reference to shared ptr for mutliple use of the object
 	*/
-	const std::shared_ptr<Element>& getBefore() const { return __before; }
+	std::shared_ptr<Element> getBefore() const { return __before; }
 
 
 	/**
@@ -95,7 +95,7 @@ public:
 	*
 	* @return reference to shared ptr for multiple use of the element
 	*/
-	const std::shared_ptr<Element>& getAfter() const  { return __after; }
+	std::shared_ptr<Element> getAfter() const  { return __after; }
 
 
 	/**
@@ -107,7 +107,7 @@ public:
 	*
 	* @param variables variables within the structogramm - MAY BE CHANGED
 	*/
-	virtual std::shared_ptr<Element>& execute(VariableMap& variables) = 0;
+	virtual std::shared_ptr<Element> execute(VariableMap& variables) { return getAfter(); }
 
 
 	/**
@@ -115,7 +115,7 @@ public:
 	*
 	* @param element which will be inserted
 	*/
-	void insertBefore(std::shared_ptr<Element>& element);
+	void insertBefore(std::shared_ptr<Element> element);
 
 
 	/**
@@ -123,7 +123,7 @@ public:
 	*
 	* @param element element which will be inserted
 	*/
-	void insertAfter(std::shared_ptr<Element>& element);
+	void insertAfter(std::shared_ptr<Element> element);
 
 	
 	/**
@@ -158,6 +158,6 @@ private:
 *
 * @param element which will be outputted to stdout
 */
-void debug(std::shared_ptr<Element>& element);
+void debug(const Element& element);
 
-#endif /* end of include guard: ELEMENT_H */
+memory* end of include guard: ELEMENT_H */

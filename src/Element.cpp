@@ -34,7 +34,7 @@ Element::Element(std::shared_ptr<Element>& before, std::shared_ptr<Element>& aft
 }
 
 
-void Element::insertBefore(std::shared_ptr<Element>& element)
+void Element::insertBefore(std::shared_ptr<Element> element)
 {
 	// connect new element with my before element
 	element->__before = this->__before;
@@ -47,7 +47,7 @@ void Element::insertBefore(std::shared_ptr<Element>& element)
 }
 
 
-void Element::insertAfter(std::shared_ptr<Element>& element)
+void Element::insertAfter(std::shared_ptr<Element> element)
 {
 	// connect new element with my after element
 	element->__after = this->__after;
@@ -63,8 +63,7 @@ void Element::insertAfter(std::shared_ptr<Element>& element)
 void Element::deleteBefore()
 {
 	__before.reset();
-}
-
+} 
 
 void Element::deleteAfter()
 {
@@ -72,11 +71,12 @@ void Element::deleteAfter()
 }
 
 
-void debug(std::shared_ptr<Element>& element)
+void debug(const Element& element)
 {
 	std::stringstream ss;
-	ss << "Element @" << element << std::endl;
-	ss << "\tBefore: @" << element->getBefore() << "\t - After: @" << element->getAfter() << std::endl;
+	ss << "Element @" << &element << std::endl;
+	ss << "\tBefore: @" << element.getBefore() << "\t - After: @" << element.getAfter() << std::endl;
+	ss << element.getText() << std::endl;
 
 	std::cout << ss.str();
 }

@@ -1,5 +1,5 @@
 #include <iostream>
-//#include "Structogram.h"
+#include "Structogram.h"
 #include "VariableMap.h"
 
 
@@ -15,6 +15,15 @@ int main(int argc, const char *argv[])
 
 	std::cout << vm.exists("cartman") << std::endl;
 	std::cout << vm.getVariable("mein_penis").second << std::endl;
+
+
+
+	std::cout << "==========================" << std::endl;
+	Structogram s;
+
+	s.appendSequenz("int i = 0;");
+
+	debug(s);
 
 	return 0;
 }
