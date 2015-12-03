@@ -3,7 +3,6 @@
 
 
 #include <map>
-#include <utility>
 #include <string>
 
 
@@ -28,8 +27,7 @@ public:
 	Variable operator-(const Variable& Other);
 	Variable operator*(const Variable& Other);
 	Variable operator/(const Variable& Other);
-
-	Variable& operator+=(const Variable& Other);
+Variable& operator+=(const Variable& Other);
 	Variable& operator-=(const Variable& Other);
 	Variable& operator*=(const Variable& Other);
 	Variable& operator/=(const Variable& Other);
@@ -111,7 +109,7 @@ public:
 	friend void debug(const VariableMap& vm);
 
 private:
-	std::map<std::string, Variable >	__data;
+	std::map<std::string, Variable>	__data;
 };
 
 
@@ -120,6 +118,7 @@ private:
 // ------------
 #include <iostream>
 #include <sstream>
+
 void debug(const VariableMap& vm);
 
 std::string get_type_str(const Variable &var);

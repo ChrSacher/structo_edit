@@ -1,10 +1,12 @@
 #include <iostream>
 #include "Structogram.h"
 #include "VariableMap.h"
+#include <memory>
 
 
 int main(int argc, const char *argv[])
 {
+/*	std::shared_ptr<int> a(new int);
 	VariableMap vm;
 	vm.setValue("i", Integer, "0");
 	vm.setValue("mein_penis", String, "ist seeehr gut");
@@ -14,18 +16,17 @@ int main(int argc, const char *argv[])
 	debug(vm);
 
 	std::cout << vm.exists("cartman") << std::endl;
-	std::cout << vm.getVariable("mein_penis").second << std::endl;
-
+	std::cout << vm.getVariable("mein_penis").getValue() << std::endl;
+	std::cout << vm.getVariable("mein_penis").getDebug() << std::endl;
+*/
 	std::cout << "==========================" << std::endl;
-	Structogram s;
-
-	s.appendSequenz("int i = 0;");
-
+	Structogram s{"Test functionality"};
 	debug(s);
 
-	std::cout << vm.getVariable("mein_penis").getDebug() << std::endl;
-	std::string a;
-	std::cin >> a ;
+	s.appendSequenz("int i = 0;");
+	debug(s);
+
+	std::cout << "Wo?" << std::endl;
 
 	return 0;
 }

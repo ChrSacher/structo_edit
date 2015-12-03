@@ -158,6 +158,6 @@ private:
 *
 * @param element which will be outputted to stdout
 */
-void debug(const Element& element);
+void debug(const std::shared_ptr<Element>& element);
 
-memory* end of include guard: ELEMENT_H */
+#endif /* end of include guard: ELEMENT_H */

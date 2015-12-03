@@ -27,6 +27,14 @@ public:
 
 
 	/**
+	* @brief returns the last logical element of the structogram (last in gui)
+	*
+	* @return last element of structogram, logical
+	*/
+	std::shared_ptr<Element> getLastLogicalElement();
+
+
+	/**
 	* @brief get name of the structogram
 	*
 	* @return name of the structogram
@@ -51,6 +59,30 @@ public:
 
 
 	/**
+	* @brief logicBlock -> True --> sequenz in if, False --> After
+	*
+	* @param condition
+	*/
+	void appendIf(const std::string& condition) {}
+
+
+	/**
+	* @brief logicBlock -> True --> sequenz in if, False --> Sequenz in False block
+	*
+	* @param condition
+	*/
+	void appendIfElse(const std::string& condition) {}
+
+
+	/**
+	* @brief logicBlock -> True -> Sequenz, always append goto to (self), false -> block after
+	*
+	* @param condition
+	*/
+	void appendWhile(const std::string& condition) {}
+
+
+	/**
 	* @brief all variables within the structogram
 	*
 	* not needed right now, since we dont want execution at this state.
@@ -64,7 +96,7 @@ private:
 	/**
 	* @brief Contains all elements saved in the structogram, not for iterating
 	*/
-	std::vector<std::shared_ptr<Element>>	__elements;
+	std::vector<std::shared_ptr<Element> >	__elements;
 
 
 	std::string								__name; /**< name of the structogram in the gui */
