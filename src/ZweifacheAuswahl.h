@@ -1,9 +1,10 @@
-#ifndef EINFACHE_AUSWAHL_H
-#define EINFACHE_AUSWAHL_H
+#ifndef ZWEIFACHE_AUSWAHL_H 
+
+#define ZWEIFACHE_AUSWAHL_H
 
 #include "Element.h"
 
-class ZweifacheAuswahl 
+class ZweifacheAuswahl : public Element
 {
 public:
 	ZweifacheAuswahl ();
@@ -11,12 +12,16 @@ public:
 	ZweifacheAuswahl (std::shared_ptr<Element>& before);
 	ZweifacheAuswahl (std::shared_ptr<Element>& before, std::shared_ptr<Element>& after);
 
-	virtual std::shared_ptr<Element>& execute(VaribaleMap& variables);
+	virtual std::shared_ptr<Element>& execute(VariableMap& variables);
 
 	virtual ~ZweifacheAuswahl ();
 
 private:
 	
+	std::shared_ptr<Element> __trueElement;
+	std::shared_ptr<Element> __falseElement;
+	std::string __condition;
+	bool evaluated;
 };
 
 
