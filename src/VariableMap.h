@@ -3,7 +3,6 @@
 
 
 #include <map>
-#include <utility>
 #include <string>
 
 
@@ -16,6 +15,9 @@ enum StructogramType
 	Invalid
 };
 
+/**
+* @brief Variable as an type which has many possible types \sa StructogramType
+*/
 class Variable
 {
 public:
@@ -25,8 +27,7 @@ public:
 	Variable operator-(const Variable& Other);
 	Variable operator*(const Variable& Other);
 	Variable operator/(const Variable& Other);
-
-	Variable& operator+=(const Variable& Other);
+Variable& operator+=(const Variable& Other);
 	Variable& operator-=(const Variable& Other);
 	Variable& operator*=(const Variable& Other);
 	Variable& operator/=(const Variable& Other);
@@ -46,6 +47,8 @@ private:
 	std::string __value;
 	StructogramType __type;
 };
+
+
 /**
 * @brief Define the VariableMap for the structogram for internal use, will be save in
 * a structogram
@@ -107,7 +110,7 @@ public:
 	friend void debug(const VariableMap& vm);
 
 private:
-	std::map<std::string, Variable >	__data;
+	std::map<std::string, Variable>	__data;
 };
 
 
@@ -116,6 +119,7 @@ private:
 // ------------
 #include <iostream>
 #include <sstream>
+
 void debug(const VariableMap& vm);
 
 std::string get_type_str(const Variable &var);

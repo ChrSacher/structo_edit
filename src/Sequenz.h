@@ -10,12 +10,12 @@
 class Sequenz : public Element 
 {
 public:
-	Sequenz () : Element() {}
+	Sequenz (const std::string& text) : Element() {setText(text); }
 	Sequenz (Element* before, Element* after = nullptr) : Element(before, after) {}
 	Sequenz (std::shared_ptr<Element>& before) : Element(before) {}
 	Sequenz (std::shared_ptr<Element>& before, std::shared_ptr<Element>& after) : Element(before, after) {}
 
-	virtual ~Sequenz ();
+	virtual ~Sequenz () {}
 
 private:
 
