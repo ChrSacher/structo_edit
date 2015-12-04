@@ -21,7 +21,7 @@ enum StructogramType
 class Variable
 {
 public:
-	Variable(const std::string &Name, StructogramType Type, const std::string &Value) : __value(Value), __type(Type) {};
+	Variable(StructogramType Type, const std::string &Value) : __value(Value), __type(Type) {};
 	Variable() :__value(""), __type(Invalid) {};
 	Variable operator+(const Variable& Other);
 	Variable operator-(const Variable& Other);
@@ -36,6 +36,7 @@ Variable& operator+=(const Variable& Other);
 	bool operator!=(const Variable& Other);
 
 	std::string getDebug();
+	bool typeComp(StructogramType r, StructogramType b);
 
 	void setValue(const std::string& Value);
 	void setType(const StructogramType type);

@@ -2,47 +2,259 @@
 #include <stdexcept>
 #include <sstream>
 
+bool Variable::typeComp(StructogramType r, StructogramType b)
+{
+	if (r == b && r != Boolean) return true;
+	if ((r == Float && b == Integer) || (b == Float && r == Integer)) return true;
+	return true;
+}
 Variable Variable::operator+(const Variable& Other)
 {
-	return Variable();
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to add different Types or add boleans");
+		return *this;
+	}
+	switch (__type)
+	{	
+		case String:
+		{
+			return Variable(String, __value + Other.__value);
+		}; break;
+		case Integer:
+		{
+			if(Other.__type == Integer) return Variable(Integer, std::to_string(std::stoi(__value) + std::stoi(Other.__value)));
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{
+			return Variable(Float, std::to_string(std::stof(__value) + std::stof(Other.__value)));
+		}; break;
+	}
+	
 }
 Variable Variable::operator-(const Variable& Other)
 {
-	return Variable();
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to add different Types or add boleans");
+		return *this;
+
+	}
+	switch (__type)
+	{
+		case String:
+		{
+			std::string returnS = __value;
+			std::string::size_type i;
+			while ((i = returnS.find(Other.__value)))
+			{
+				if (i == std::string::npos) break;
+				returnS.erase(i, Other.__value.length());
+			}
+			return Variable(String, returnS);
+		}; break;
+		case Integer:
+		{
+			if (Other.__type == Integer) return Variable(Integer, std::to_string(std::stoi(__value) - std::stoi(Other.__value)));
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{
+			return Variable(Float, std::to_string(std::stof(__value) - std::stof(Other.__value)));
+		}; break;
+	}
 }
 Variable Variable::operator*(const Variable& Other)
 {
-	return Variable();
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to mul different Types or mul boleans");
+		return *this;
+	}
+	switch (__type)
+	{
+		case String:
+		{
+			throw("Trying to mul Strings"); 
+			return *this;
+		}; break;
+		case Integer:
+		{
+			if (Other.__type == Integer) return Variable(Integer, std::to_string(std::stoi(__value) * std::stoi(Other.__value)));
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{
+			return Variable(Float, std::to_string(std::stof(__value) * std::stof(Other.__value)));
+		}; break;
+	}
 }
 Variable Variable::operator/(const Variable& Other)
 {
-	return Variable();
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to div different Types or div boleans");
+		return *this;
+	}
+	switch (__type)
+	{
+		case String:
+		{
+			throw("Trying to div Strings");
+			return *this;
+		}; break;
+		case Integer:
+		{
+			if (Other.__type == Integer) return Variable(Float, std::to_string((float)(std::stoi(__value) / (float)(std::stoi(Other.__value)))));
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{
+			return Variable(Float, std::to_string(std::stof(__value) /  std::stof(Other.__value)));
+		}; break;
+	}
 }
 
 Variable& Variable::operator+=(const Variable& Other)
 {
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to add different Types or add boleans");
+		return *this;
+	}
+	switch (__type)
+	{
+		case String:
+		{
+			__value += Other.__value;
+			__type = String;
+			return *this;
+		}; break;
+		case Integer:
+		{
+			if (Other.__type == Integer)
+			{
+				__value = std::to_string(std::stoi(__value) + std::stoi(Other.__value));
+				__type = Integer;
+				return *this;
+			}
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{	__value = std::to_string(std::stof(__value) + std::stof(Other.__value));
+			return *this;
+		}; break;
+	}
 	return *this;
 }
 Variable& Variable::operator-=(const Variable& Other)
 {
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to add different Types or add boleans");
+		return *this;
+	}
+	switch (__type)
+	{
+		case String:
+		{
+			std::string::size_type i;
+			while ((i = __value.find(Other.__value)) != std::string::npos)
+			{
+				__value.erase(i, Other.__value.length());
+			}
+			return *this;
+		}; break;
+		case Integer:
+		{
+			if (Other.__type == Integer)
+			{
+				__value = std::to_string(std::stoi(__value) - std::stoi(Other.__value));
+				__type = Integer;
+				return *this;
+			}
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{	__value = std::to_string(std::stof(__value) - std::stof(Other.__value));
+		return *this;
+		}; break;
+	}
 	return *this;
 }
 Variable& Variable::operator*=(const Variable& Other)
 {
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to mul different Types or mul boleans");
+		return *this;
+	}
+	switch (__type)
+	{
+		case String:
+		{
+			throw("Trying to *= Strings");
+			return *this;
+		}; break;
+		case Integer:
+		{
+			if (Other.__type == Integer)
+			{
+				__value = std::to_string(std::stoi(__value) * std::stoi(Other.__value));
+				__type = Integer;
+			};
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{
+			__type = Float;
+			__value = std::to_string(std::stof(__value) * std::stof(Other.__value));
+			return *this;
+		}; break;
+	}
 	return *this;
 }
 Variable& Variable::operator/=(const Variable& Other)
 {
-	return *this;
+	if (!typeComp(__type, Other.__type))
+	{
+		throw("Trying to div different Types or div boleans");
+		return *this;
+	}
+	switch (__type)
+	{
+		case String:
+		{
+			throw("Trying to div Strings");
+			return *this;
+
+		}; break;
+		case Integer:
+		{
+			if (Other.__type == Integer)
+			{
+				__value = std::to_string(std::stoi(__value) / std::stoi(Other.__value));
+				__type = Integer;
+			};
+		}; //use Fallthrough since Integer and Float behaves like float + float
+		case Float:
+		{
+			__type = Float;
+			__value = std::to_string(std::stof(__value) / std::stof(Other.__value));
+			return *this;
+		}; break;
+	}
 }
 
 bool Variable::operator==(const Variable& Other)
 {
-	return __type == Other.__type;
+	if (__type == Other.__type)
+	{
+		return __value == Other.__value;
+	}
+	if ((__type == Float && Other.__type == Integer) || (__type == Integer && Other.__type == Float))
+	{
+		return std::stof(__value) == std::stof(Other.__value);
+	}
+	return false;
 }
 bool Variable::operator!=(const Variable& Other)
 {
-	return __type != Other.__type;
+	return !(__type == Other.__type);
 }
 
 std::string Variable::getDebug()
@@ -95,7 +307,7 @@ void VariableMap::setValue(const std::string& varname, enum StructogramType type
 	// create the variable if not existing
 	if (!exists(varname))
 	{
-		__data[varname] = Variable(varname,type, value);
+		__data[varname] = Variable(type, value);
 
 		return;
 	}

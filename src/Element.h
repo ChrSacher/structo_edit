@@ -145,10 +145,10 @@ public:
 
 
 
-private:
+protected:
 	std::shared_ptr<Element>	__before; 	/**< The element before the structogram */
 	std::shared_ptr<Element>	__after;	/**< The element after the structogram */
-
+	
 	std::string					__text;		/**< Text displayed on the node in the gui */
 };
 
